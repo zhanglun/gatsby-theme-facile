@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          access-token: ${{ secrets.DEPLOY_TOKEN }} // 自定义 scret name
+          access-token: ${{ secrets.DEPLOY_TOKEN }}
           deploy-branch: gh-pages
-          deploy-repo: gatsby-starter-blog // 注意这里直接是仓库名称
+          deploy-repo: gatsby-starter-blog
 
