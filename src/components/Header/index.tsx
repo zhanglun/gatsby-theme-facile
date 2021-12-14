@@ -4,7 +4,7 @@ import "./index.css";
 
 export const Header = props => {
   console.log("props", props)
-  const { title, menu } = props
+  const { title, menu = [] } = props
 
   const renderMenu = () => {
     return menu.map(item => {
