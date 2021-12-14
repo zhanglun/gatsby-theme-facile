@@ -1,10 +1,27 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { Header } from "./Header"
+import { Banner } from "./Banner"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children, menu }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
+
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          menu {
+            id
+            name
+            url
+          }
+        }
+      }
+    }
+  `)
 
   if (isRootPath) {
     header = (
@@ -22,6 +39,11 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
+      <Header
+        title={data.site.siteMetadata.title}
+        menu={data.site.siteMetadata.menu}
+      />
+      <Banner />
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>

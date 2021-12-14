@@ -60,6 +60,9 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+
+
+  --header-height: 60px;
 }
 
 /* HTML elements */
@@ -241,9 +244,9 @@ a:focus {
 /* Custom classes */
 
 .global-wrapper {
-  margin: var(--spacing-0) auto;
-  max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  /* margin: var(--spacing-0) auto; */
+  /* max-width: var(--maxWidth-wrapper); */
+  /* padding: var(--spacing-10) var(--spacing-5); */
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {

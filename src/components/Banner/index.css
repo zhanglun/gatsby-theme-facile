@@ -1,0 +1,15 @@
+.banner {
+  height: 380px;
+  padding: 10px;
+  background-image: url("https://images.unsplash.com/photo-1606209918624-dbe472f7004a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80https://images.unsplash.com/photo-1606209918624-dbe472f7004a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80");
+}
+
+.banner-title {
+  width: 600px;
+  margin: 120px auto;
+  font-size: 36px;
+  background-color: rgba(0,0,0,0.65);
+  padding: 20px 30px;
+  color: #fff;
+  text-align: center;
+}

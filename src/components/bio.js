@@ -21,6 +21,11 @@ const Bio = () => {
           social {
             twitter
           }
+          menu {
+            id
+            name
+            url
+          }
         }
       }
     }

@@ -1,15 +1,37 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `要眇宜修的网络日志`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `zhanglun`,
+      summary: `感受生活`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `勿忘初心，方得始终`,
+    siteUrl: `https://zhanglun.github.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `asdf`,
     },
+    menu: [
+      {
+        id: 'home',
+        name: '首页',
+        url: '/',
+      },
+      {
+        id: 'tag',
+        name: '标签',
+        url: '/tags',
+      },
+      {
+        id: 'archive',
+        name: '归档',
+        url: '/archives',
+      },
+      {
+        id: 'about',
+        name: '关于我',
+        url: '/aboutme',
+      }
+    ],
   },
   plugins: [
     `gatsby-plugin-image`,
