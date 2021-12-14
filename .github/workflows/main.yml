@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
+          access-token: ${{ secrets.gatsbyDeploy }}
           deploy-branch: gh-pages
           deploy-repo: gatsby-starter-blog
 
