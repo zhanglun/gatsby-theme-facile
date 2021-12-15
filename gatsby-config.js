@@ -5,7 +5,8 @@ module.exports = {
       name: `zhanglun`,
       summary: `感受生活`,
     },
-    description: `勿忘初心，方得始终`,
+    description: `欢迎来到 要眇宜修的网络日志 
+		一个记录生活，分享心得的博客`,
     siteUrl: `https://zhanglun.github.io/`,
     social: {
       twitter: `asdf`,

@@ -3,11 +3,13 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { ArticleList } from "../components/Article/ArticleList"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  const siteMenu = data.site.siteMetadata?.menu || [];
+  const siteMenu = data.site.siteMetadata?.menu || []
+  const description = data.site.siteMetadata?.description || ''
 
   if (posts.length === 0) {
     return (
@@ -23,8 +25,14 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle} menu={siteMenu}>
+    <Layout
+      location={location}
+      title={siteTitle}
+      menu={siteMenu}
+      description={description}
+    >
       <Seo title="All posts" />
+      <ArticleList posts={posts} />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -68,6 +76,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
         menu {
           id
           name
