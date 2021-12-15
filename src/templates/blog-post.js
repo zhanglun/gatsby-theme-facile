@@ -8,10 +8,16 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const siteMenu = data.site.siteMetadata?.menu || []
+  const description = data.site.siteMetadata?.description || ''
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle} menu={siteMenu}>
+    <Layout
+      location={location}
+      title={siteTitle}
+      menu={siteMenu}
+      description={description}
+    >
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -30,8 +36,7 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
         <hr />
-        <footer>
-        </footer>
+        <footer></footer>
       </article>
       <nav className="blog-post-nav">
         <ul
@@ -74,6 +79,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
+        menu {
+          id
+          name
+          url
+        }
       }
     }
     markdownRemark(id: { eq: $id }) {
@@ -84,6 +95,9 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        draft
+        tags
+        categories
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

@@ -1,6 +1,12 @@
 ---
 title: "ParseInt()的迷幻行为"
 date: 2021-04-23T14:20:51+08:00
+tags: 
+  - a
+  - b
+categories:
+  - 前端
+  - 译文
 draft: false
 ---
 
