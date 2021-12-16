@@ -1,28 +1,23 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { ArticleList } from "../components/Article/ArticleList"
 
-const BlogIndex = ({ data, location }) => {
+const BlogList = ({ data, pageContext, location }) => {
+  const { currentPage, numPages } = pageContext
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage =
+    currentPage - 1 === 1 ? "/" : `/page/${(currentPage - 1).toString()}`
+  const nextPage = `/page/${(currentPage + 1).toString()}`
+
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   const siteMenu = data.site.siteMetadata?.menu || []
   const description = data.site.siteMetadata?.description || ""
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle} menu={siteMenu}>
-        <Seo title="All posts" />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
+  console.log("post", data)
 
   return (
     <Layout
@@ -32,22 +27,28 @@ const BlogIndex = ({ data, location }) => {
       description={description}
     >
       <Seo title="All posts" />
-      <ArticleList posts={posts.slice(0, 2)} />
+      <ArticleList posts={posts} />
       <div className="pagination">
-        {" "}
+        {!isFirst && (
+          <Link to={prevPage} rel="prev">
+            ← Previous Page
+          </Link>
+        )}
         <span></span>
-        <Link to={'/page/2'} rel="next">
-          Next Page →
-        </Link>
+        {!isLast && (
+          <Link to={nextPage} rel="next">
+            Next Page →
+          </Link>
+        )}
       </div>
     </Layout>
   )
 }
 
-export default BlogIndex
+export default BlogList
 
 export const pageQuery = graphql`
-  query {
+  query blogPageQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
@@ -59,7 +60,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       nodes {
         excerpt
         fields {
