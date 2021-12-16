@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { Header } from "./Header"
 import { Banner } from "./Banner"
+import { Footer } from './Footer';
 
 const Layout = ({ location, children, title, menu, description }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -17,11 +18,7 @@ const Layout = ({ location, children, title, menu, description }) => {
       />
       <Banner description={description} />
       <section className="main">{children}</section>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
+      <Footer />
     </div>
   )
 }
