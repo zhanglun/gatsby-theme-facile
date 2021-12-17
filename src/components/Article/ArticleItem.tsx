@@ -3,8 +3,9 @@ import { Link } from "gatsby"
 
 export const ArticleItem = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
+  const frontmatter = post.frontmatter || {}
 
-  console.log(post)
+  console.log(frontmatter)
 
   return (
     <li key={post.fields.slug}>
@@ -14,8 +15,19 @@ export const ArticleItem = ({ post }) => {
         itemType="http://schema.org/Article"
       >
         <header>
+          {frontmatter.categories && (
+            <div className="article-category-list">
+              {frontmatter.categories.map((category, idx) => {
+                return (
+                  <span className="article-category" key={idx}>
+                    {category}
+                  </span>
+                )
+              })}
+            </div>
+          )}
           <h2>
-            <Link to={post.fields.slug} itemProp="url">
+            <Link to={post.fields.slug} itemProp="url" className="article-item-title hover-underline">
               <span itemProp="headline">{title}</span>
             </Link>
           </h2>

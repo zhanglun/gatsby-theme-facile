@@ -24,6 +24,10 @@
   margin-top: var(--spacing-5);
 }
 
+.article-list-item h2:hover {
+  color: var(--color-heading-black);
+}
+
 .article-list-item section { 
   margin: 50px 0 20px;
 }
@@ -57,4 +61,19 @@
 .article-list-item .read-more:hover {
   border-color: var(--color-heading);
   color: var(--color-heading);
+}
+
+.article-category-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-category {
+  background-color: #636363;
+  color: #fff;
+  margin: 0 4px;
+  padding: 4px 14px;
+  font-size: 14px;
+  line-height: 20px;
 }

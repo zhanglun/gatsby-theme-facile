@@ -2,6 +2,10 @@
 title: "CommonJS 和 ESModule 的导入问题"
 date: 2021-02-10T10:20:30+08:00
 draft: false
+categories: 
+  - 原创
+  - 思考
+  - 技术研究
 ---
 
 
