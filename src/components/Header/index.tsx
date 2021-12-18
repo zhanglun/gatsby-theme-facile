@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import "./index.css";
+import "./index.css"
 
 export const Header = props => {
   console.log("props", props)
@@ -19,7 +19,9 @@ export const Header = props => {
   return (
     <header className="header">
       <div className="header-inner">
-        <div className="header-title">{title}</div>
+        <div className="header-title">
+          <Link className="header-title-link" to={"/"}>{title}</Link>
+        </div>
         <nav className="header-nav">{renderMenu()}</nav>
       </div>
     </header>

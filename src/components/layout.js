@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
 import { Header } from "./Header"
 import { Banner } from "./Banner"
 import { Footer } from './Footer';
@@ -9,6 +8,7 @@ const Layout = ({ location, children, title, menu, description }) => {
   const isRootPath = location.pathname === rootPath
   
   console.log('menu', menu);
+  console.log(rootPath)
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>

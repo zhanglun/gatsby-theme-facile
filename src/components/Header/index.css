@@ -30,3 +30,13 @@
   line-height: var(--header-height);
   text-decoration: none;
 }
+
+.header-title-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.header-title-link:hover {
+  color: var(--color-heading-black);
+}
