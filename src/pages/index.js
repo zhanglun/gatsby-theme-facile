@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
       description={description}
     >
       <Seo title="All posts" />
-      <ArticleList posts={posts.slice(0, 2)} />
+      <ArticleList posts={posts} />
       <div className="pagination">
         {" "}
         <span></span>
@@ -59,7 +59,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 5
+      ) {
       nodes {
         excerpt
         fields {
