@@ -19,9 +19,9 @@ module.exports = {
         url: '/',
       },
       {
-        id: 'tag',
-        name: '标签',
-        url: '/tags',
+        id: 'category',
+        name: '分类',
+        url: '/categories',
       },
       {
         id: 'archive',
