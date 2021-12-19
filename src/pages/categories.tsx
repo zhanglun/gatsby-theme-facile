@@ -37,16 +37,22 @@ const CategoryPage = ({ data, location }) => {
       description={description}
     >
       <Seo title="All posts" />
-      {categoryGroup.map(category => {
-        return (
-          <Link
-            to={`/categories/${category.fieldValue}`}
-            key={category.fieldValue}
-          >
-            {category.fieldValue} {category.totalCount}
-          </Link>
-        )
-      })}
+      <div className="page-title">分类</div>
+      <div className="category-list">
+        {categoryGroup.map(category => {
+          return (
+            <Link
+              to={`/categories/${category.fieldValue}`}
+              key={category.fieldValue}
+              className="category-item"
+            >
+              <div className="category-img"></div>
+              <p># {category.fieldValue}</p>
+              <p>{category.totalCount}</p>
+            </Link>
+          )
+        })}
+      </div>
     </Layout>
   )
 }

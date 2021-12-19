@@ -1,5 +1,5 @@
 .article-list {
-  margin: 0 100px;
+  margin: 0 var(--main-spacing);
   list-style-type: none;
 }
 
