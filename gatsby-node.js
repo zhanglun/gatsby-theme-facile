@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        postsRemark: allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
@@ -21,6 +21,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+          }
+        }
+        categoryGroup: allMarkdownRemark {
+          group(field: frontmatter___categories) {
+            fieldValue
+            totalCount
           }
         }
       }
@@ -35,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const posts = result.data.postsRemark.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -58,6 +64,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
+  // create blog list pages
   const postsPerPage = 5
   const numPages = Math.ceil(posts.length / postsPerPage)
 
@@ -73,13 +80,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+
+  // 创建分类页面
+  const categoryTemplate = path.resolve("./src/templates/categories.js")
+  const categories = result.data.categoryGroup.group
+
+  categories.forEach(category => {
+    createPage({
+      path: `/categories/${category.fieldValue}`,
+      component: categoryTemplate,
+      context: {
+        category: category.fieldValue,
+        count: category.totalCount,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = `/blogs${createFilePath({ node, getNode, basePath: './asdfasdf' })}`
+    const value = `/blogs${createFilePath({
+      node,
+      getNode,
+      basePath: "./asdfasdf",
+    })}`
 
     createNodeField({
       name: `slug`,

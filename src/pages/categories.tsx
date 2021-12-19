@@ -37,8 +37,15 @@ const CategoryPage = ({ data, location }) => {
       description={description}
     >
       <Seo title="All posts" />
-      {categoryGroup.map((category) => {
-        return <div>{category.fieldValue} {category.totalCount}</div>
+      {categoryGroup.map(category => {
+        return (
+          <Link
+            to={`/categories/${category.fieldValue}`}
+            key={category.fieldValue}
+          >
+            {category.fieldValue} {category.totalCount}
+          </Link>
+        )
       })}
     </Layout>
   )
