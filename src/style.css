@@ -256,6 +256,7 @@ a:focus {
   max-width: 1280px;
   width: 90%;
   margin: 0 auto;
+  padding: 0 var(--main-spacing);
   background-color: var(--main-bg);
 }
 
@@ -333,7 +334,6 @@ a:focus {
 }
 
 .page-title {
-  margin-bottom: var(--spacing-4);
   padding-top: 50px;
   text-align: center;
   font-size: var(--fontSize-6);
@@ -347,17 +347,35 @@ a:focus {
 
 .category-list {
   display: grid;
-  grid-template-rows: repeat(150px);
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  grid-row-gap: 40px;
+  padding: 30px 0 60px;
 }
 
 .category-img {
   width: 150px;
   height: 150px;
-  padding: 3px;
+  padding: 10px;
   margin-bottom: 20px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.2);
   border-radius: 100%;
+  transition: all ease-in-out 0.3s;
+}
+
+.category-img img {
+  width: 100%;
 }
 
 .category-item {
+  text-align: center;
+  text-decoration: none;
+}
+
+.category-item:hover {
+  color: var(--color-text);
+}
+
+.category-item:hover .category-img {
+  background-color: rgba(0,0,0,0.35);
 }

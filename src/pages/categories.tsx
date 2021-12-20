@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { ArticleList } from "../components/Article/ArticleList"
+import A from '../images/a.png';
 
 const CategoryPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -46,9 +47,11 @@ const CategoryPage = ({ data, location }) => {
               key={category.fieldValue}
               className="category-item"
             >
-              <div className="category-img"></div>
-              <p># {category.fieldValue}</p>
-              <p>{category.totalCount}</p>
+              <div className="category-img">
+                <img src={A} alt="" />
+              </div>
+              <div># {category.fieldValue}</div>
+              <div>{category.totalCount}</div>
             </Link>
           )
         })}
