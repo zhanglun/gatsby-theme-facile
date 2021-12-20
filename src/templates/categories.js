@@ -3,14 +3,15 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import A from "../images/a.png"
 
 const CategoryTempalte = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const siteMenu = data.site.siteMetadata?.menu || []
   const description = data.site.siteMetadata?.description || ""
-  const { category, count } = pageContext;
+  const { category, count } = pageContext
 
-  console.log(pageContext);
+  console.log(pageContext)
 
   return (
     <Layout
@@ -20,7 +21,15 @@ const CategoryTempalte = ({ data, location, pageContext }) => {
       description={description}
     >
       <Seo title="All posts" />
-      <h1>{category} <small>{count}</small></h1>
+      <div className="category-page-header">
+        <div className="category-item">
+          <div className="category-img">
+            <img src={A} alt="" />
+          </div>
+          <div># {category}</div>
+          <div>{count}</div>
+        </div>
+      </div>
     </Layout>
   )
 }
