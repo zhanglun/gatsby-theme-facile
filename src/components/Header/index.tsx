@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import "./index.css"
 
 export const Header = props => {
-  console.log("props", props)
   const { title, menu = [] } = props
 
   const renderMenu = () => {
