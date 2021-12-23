@@ -1,3 +1,6 @@
+const INTEGRATION_TOKEN = 'secret_6buUNCr4GKBMmLH6jhICx7tRJvb7iBWf6PtWgrnfmIy';
+const DATABASE_ID = '45ab44626c7b4b8d9ecd22c9b70980b5';
+
 module.exports = {
   pathPrefix: "/gatsby-starter-blog",
   siteMetadata: {
@@ -146,6 +149,15 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-notion-api`,
+      options: {
+        token: `${INTEGRATION_TOKEN}`,
+        databaseId: `${DATABASE_ID}`,
+        propsToFrontmatter: true,
+        lowerTitleLevel: true,
       },
     },
     `gatsby-plugin-react-helmet`,

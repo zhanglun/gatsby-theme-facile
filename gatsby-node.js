@@ -101,11 +101,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = `/blogs${createFilePath({
+    let value = `/blogs${createFilePath({
       node,
       getNode,
-      basePath: "./asdfasdf",
     })}`
+
+    // if from notion，combine Date with title
+    if (!value) {
+      console.log(node.formatter);
+      value = `${new Date(node.formatter.date).format('YYYY-MM-DD')}-${node.formatter.title}`
+    }
 
     createNodeField({
       name: `slug`,
