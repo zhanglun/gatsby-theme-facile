@@ -2,6 +2,13 @@
 title: "从getBoundingClientRect到Intersection Observer"
 date: 2019-05-23T20:54:17+08:00
 draft: false
+tags: 
+ - id: 1
+   name: test
+   color: red
+ - id: 2
+   name: test2
+   color: green
 ---
 
 平时在写页面交互的时候经常使用兼容性不错的 getBoundindClientReact 方法，以快速获取元素大小和元素位置。最近无意中看到getBoundingClientRect方法会导致 Reflow的说法，但是并没有提及为什么，很是好奇，遂研究了一番。

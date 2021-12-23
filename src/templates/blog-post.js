@@ -97,6 +97,9 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        draft
+        tags
+        categories
       }
     }
   }

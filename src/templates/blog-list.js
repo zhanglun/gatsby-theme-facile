@@ -65,7 +65,7 @@ export const pageQuery = graphql`
       limit: $limit
       skip: $skip
     ) {
-      node {
+      nodes {
         excerpt
         fields {
           slug
@@ -74,6 +74,9 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          draft
+          tags
+          categories
         }
       }
     }

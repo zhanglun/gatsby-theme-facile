@@ -106,11 +106,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       getNode,
     })}`
 
-    // if from notion，combine Date with title
-    if (!value) {
-      console.log(node.formatter);
-      value = `${new Date(node.formatter.date).format('YYYY-MM-DD')}-${node.formatter.title}`
-    }
+    console.log('value', value)
+    
+    // // if from notion，combine Date with title
+    // if (!value) {
+    //   console.log(node.formatter);
+    //   value = `${new Date(node.formatter.date).format('YYYY-MM-DD')}-${node.formatter.title}`
+    // }
 
     createNodeField({
       name: `slug`,
@@ -120,7 +122,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
 
   // Explicitly define the siteMetadata {} object
@@ -145,19 +147,65 @@ exports.createSchemaCustomization = ({ actions }) => {
       twitter: String
     }
 
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
-    }
-
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-    }
-
-    type Fields {
-      slug: String
+    interface Tag {
+      id: String
+      name: String
+      color: String
     }
   `)
+
+  const typeDefs = [
+    "type MarkdownRemark implements Node { frontmatter: Frontmatter, fields: Fields }",
+    schema.buildObjectType({
+      name: 'Fields',
+      fields: {
+        slug: {
+          type: "String!",
+        }
+      }
+    }), 
+    schema.buildObjectType({
+      name: "Frontmatter",
+      fields: {
+        title: {
+          type: "String!",
+        },
+        description: {
+          type: "String!",
+        },
+        date: {
+          type: "Date",
+          extensions: {
+            dateformat: {},
+          },
+        },
+        tags: {
+          type: "[Tag!]!",
+          resolve(source, args, context, info) {
+            // For a more generic solution, you could pick the field value from
+            // `source[info.fieldName]`
+            const { tags } = source
+            if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
+              return ["uncategorized"]
+            }
+            return tags
+          },
+        },
+        categories: {
+          type: "[String!]",
+          resolve(source, args, context, info) {
+            // For a more generic solution, you could pick the field value from
+            // `source[info.fieldName]`
+            const { categories } = source
+            if (source.categories == null || (Array.isArray(categories) && !categories.length)) {
+              return ["uncategorized"]
+            }
+            return categories
+          },
+        },
+      },
+    }),
+  ];
+
+  createTypes(typeDefs)
 }
