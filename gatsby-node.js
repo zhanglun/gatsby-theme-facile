@@ -152,6 +152,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       name: String
       color: String
     }
+
   `)
 
   const typeDefs = [
@@ -171,7 +172,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           type: "String!",
         },
         description: {
-          type: "String!",
+          type: "String",
         },
         date: {
           type: "Date",
@@ -180,7 +181,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           },
         },
         tags: {
-          type: "[Tag!]!",
+          type: "[Tag]",
           resolve(source, args, context, info) {
             // For a more generic solution, you could pick the field value from
             // `source[info.fieldName]`
@@ -189,18 +190,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
               return ["uncategorized"]
             }
             return tags
-          },
-        },
-        categories: {
-          type: "[String!]",
-          resolve(source, args, context, info) {
-            // For a more generic solution, you could pick the field value from
-            // `source[info.fieldName]`
-            const { categories } = source
-            if (source.categories == null || (Array.isArray(categories) && !categories.length)) {
-              return ["uncategorized"]
-            }
-            return categories
           },
         },
       },

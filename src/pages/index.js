@@ -74,7 +74,6 @@ export const pageQuery = graphql`
           description
           draft
           tags
-          categories
         }
       }
     }
