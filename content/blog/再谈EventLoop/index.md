@@ -7,14 +7,8 @@ tags:
  - id: 2
    name: tagstest2
    color: green
-categories: 
- - categorie-test 
- - id: 1
-   name: categoriestest
-   color: red
- - id: 2
-   name: categoriestest2
-   color: green
+categories: categorie-test 
+
 ---
 
 首先明确一点，事件循环这个概念并非JavaScript语言中的。在计算机科学中，事件循环作为编程结构或者设计模式，在程序中等待和发送消息或者事件。

@@ -1,9 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-const { GraphQLScalarType } = require("graphql")
-const { Kind } = require("graphql/language")
-
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
@@ -151,41 +148,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     }
   `)
 
-  // 自定义类型
-  const StringAndObjectArray = new GraphQLScalarType({
-    name: "StringAndObjectArray",
-    description: "Arrary with string or object",
-    parseValue: value => {
-      if (Array.isArray(value)) {
-        return value.map(v => v.name || v)
-      } else if (typeof value === 'object') {
-        return value.name
-      }
-
-      return value
-    },
-    serialize: value => {
-      if (Array.isArray(value)) {
-        return value.map(v => v.name || v)
-      } else if (typeof value === 'object') {
-        return value.name
-      }
-
-      return value
-    },
-    parseLiteral: ast => {
-      switch (ast.kind) {
-        case Kind.STRING:
-          return ast.value
-        case Kind.OBJECT:
-          throw new Error(
-            `Not sure what to do with OBJECT for ObjectScalarType`
-          )
-        default:
-          return null
-      }
-    },
-  })
   const typeDefs = [
     "type MarkdownRemark implements Node { frontmatter: Frontmatter, fields: Fields }",
     schema.buildObjectType({
@@ -212,10 +174,16 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           },
         },
         tags: {
-          type: StringAndObjectArray,
+          type: "[String]",
+          resolve(source) {
+            return source.tags.map((t) => t.name || t);
+          } 
         },
         categories: {
-          type: StringAndObjectArray,
+          type: "String",
+          resolve(source) {
+            return source.categories;
+          }
         },
       },
     }),
