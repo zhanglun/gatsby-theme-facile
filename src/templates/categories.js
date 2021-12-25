@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { ArticleList } from "../components/Article/ArticleList"
 import A from "../images/a.png"
 
 const CategoryTempalte = ({ data, location, pageContext }) => {
@@ -10,6 +11,7 @@ const CategoryTempalte = ({ data, location, pageContext }) => {
   const siteMenu = data.site.siteMetadata?.menu || []
   const description = data.site.siteMetadata?.description || ""
   const { category, count } = pageContext
+  const { nodes: posts } = data.allMarkdownRemark;
 
   console.log(pageContext)
 
@@ -30,6 +32,9 @@ const CategoryTempalte = ({ data, location, pageContext }) => {
           <div>{count}</div>
         </div>
       </div>
+      <div className="category-page-body">
+      <ArticleList posts={posts} />
+      </div>
     </Layout>
   )
 }
@@ -37,7 +42,7 @@ const CategoryTempalte = ({ data, location, pageContext }) => {
 export default CategoryTempalte
 
 export const pageQuery = graphql`
-  query {
+  query categoryQuerPage ($category: String) {
     site {
       siteMetadata {
         title
@@ -46,6 +51,23 @@ export const pageQuery = graphql`
           id
           name
           url
+        }
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {categories: {eq: $category }}}
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          draft
         }
       }
     }
