@@ -1,6 +1,9 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const { GraphQLScalarType } = require("graphql")
+const { Kind } = require("graphql/language")
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
@@ -101,18 +104,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    let value = `/blogs${createFilePath({
-      node,
-      getNode,
-    })}`
+    let value = ""
 
-    console.log('value', value)
-    
-    // // if from notion，combine Date with title
-    // if (!value) {
-    //   console.log(node.formatter);
-    //   value = `${new Date(node.formatter.date).format('YYYY-MM-DD')}-${node.formatter.title}`
-    // }
+    try {
+      value = `/blogs${createFilePath({
+        node,
+        getNode,
+      })}`
+    } catch (err) {
+      value = value || `/blogs/${node.frontmatter.title}`
+    }
+
+    console.log("value ====>", value)
 
     createNodeField({
       name: `slug`,
@@ -146,25 +149,53 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     type Social {
       twitter: String
     }
-
-    interface Tag {
-      id: String
-      name: String
-      color: String
-    }
-
   `)
 
+  // 自定义类型
+  const StringAndObjectArray = new GraphQLScalarType({
+    name: "StringAndObjectArray",
+    description: "Arrary with string or object",
+    parseValue: value => {
+      if (Array.isArray(value)) {
+        return value.map(v => v.name || v)
+      } else if (typeof value === 'object') {
+        return value.name
+      }
+
+      return value
+    },
+    serialize: value => {
+      if (Array.isArray(value)) {
+        return value.map(v => v.name || v)
+      } else if (typeof value === 'object') {
+        return value.name
+      }
+
+      return value
+    },
+    parseLiteral: ast => {
+      switch (ast.kind) {
+        case Kind.STRING:
+          return ast.value
+        case Kind.OBJECT:
+          throw new Error(
+            `Not sure what to do with OBJECT for ObjectScalarType`
+          )
+        default:
+          return null
+      }
+    },
+  })
   const typeDefs = [
     "type MarkdownRemark implements Node { frontmatter: Frontmatter, fields: Fields }",
     schema.buildObjectType({
-      name: 'Fields',
+      name: "Fields",
       fields: {
         slug: {
           type: "String!",
-        }
-      }
-    }), 
+        },
+      },
+    }),
     schema.buildObjectType({
       name: "Frontmatter",
       fields: {
@@ -181,20 +212,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           },
         },
         tags: {
-          type: "[Tag]",
-          resolve(source, args, context, info) {
-            // For a more generic solution, you could pick the field value from
-            // `source[info.fieldName]`
-            const { tags } = source
-            if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
-              return ["uncategorized"]
-            }
-            return tags
-          },
+          type: StringAndObjectArray,
+        },
+        categories: {
+          type: StringAndObjectArray,
         },
       },
     }),
-  ];
+  ]
 
   createTypes(typeDefs)
 }

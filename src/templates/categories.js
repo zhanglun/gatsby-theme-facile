@@ -26,7 +26,7 @@ const CategoryTempalte = ({ data, location, pageContext }) => {
           <div className="category-img">
             <img src={A} alt="" />
           </div>
-          <div># {category}</div>
+          <div># {category.name || category}</div>
           <div>{count}</div>
         </div>
       </div>
