@@ -17,7 +17,7 @@ export const ArticleItem = ({ post }) => {
         <header>
           {frontmatter.categories && (
             <div className="article-category-list">
-              {[frontmatter.categories].map((category, idx) => {
+              {frontmatter.categories.map((category, idx) => {
                 return (
                   <span className="article-category" key={idx}>
                     {category}

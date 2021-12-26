@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { start } = require("repl")
 const POSTSTATUS = {
   PUBLISH: 'publish',
   WORKING: 'working',
@@ -178,6 +179,17 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           extensions: {
             dateformat: {},
           },
+          resolve(source) {
+            console.log('---->', source.date);
+
+            const { date } = source;
+
+            if (date && date.start) {
+              return date.start;
+            }
+
+            return date;
+          }
         },
         tags: {
           type: "[String]",
@@ -190,16 +202,16 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           resolve(source) {
             const { categories = [] } = source;
 
+            if (Array.isArray(categories)) {
+
+              return (categories || []).map((item) => item.name || item);
+            }
+
             if (categories instanceof Object) {
               return [categories.name];
             }
 
-            if (categories instanceof Array) {
-              return (categories || []).map((item) => item.name || item);
-            }
-
             return [categories];
-
           }
         },
         status: {
