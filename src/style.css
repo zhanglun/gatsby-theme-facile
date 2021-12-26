@@ -385,3 +385,7 @@ a:focus {
   display: grid;
   justify-items: center;
 }
+
+p img {
+  max-width: 100%;
+}

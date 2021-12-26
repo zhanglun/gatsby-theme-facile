@@ -6,11 +6,11 @@ import Seo from "../components/seo"
 
 const CategoryPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const categoryGroup = data.allMarkdownRemark.group
+  const postGroup = data.allMarkdownRemark.group
   const siteMenu = data.site.siteMetadata?.menu || []
   const description = data.site.siteMetadata?.description || ""
 
-  if (categoryGroup.length === 0) {
+  if (postGroup.length === 0) {
     return (
       <Layout
         location={location}
@@ -36,7 +36,7 @@ const CategoryPage = ({ data, location }) => {
       description={description}
     >
       <Seo title="All posts" />
-      {categoryGroup.map((category) => {
+      {postGroup.map((category) => {
         return <div>{category.fieldValue} {category.totalCount}</div>
       })}
     </Layout>
@@ -59,9 +59,18 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark {
-      group(field: frontmatter___categories) {
+      group(field: frontmatter___date) {
         fieldValue
         totalCount
+        nodes {
+          frontmatter {
+            date
+            title
+            tags
+            status
+            categories
+          }
+        }
       }
     }
   }
