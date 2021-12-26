@@ -100,6 +100,7 @@ export const pageQuery = graphql`
         draft
         tags
         categories
+        status
       }
     }
   }

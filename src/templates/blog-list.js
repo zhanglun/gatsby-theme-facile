@@ -75,6 +75,7 @@ export const pageQuery = graphql`
           title
           description
           draft
+          status
         }
       }
     }

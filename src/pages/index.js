@@ -61,6 +61,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {status: {eq: "publish"}}}
       limit: 5
       ) {
       nodes {
@@ -75,6 +76,7 @@ export const pageQuery = graphql`
           draft
           tags
           categories
+          status
         }
       }
     }
