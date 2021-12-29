@@ -3,6 +3,12 @@
 /* CSS Custom Properties Definitions */
 
 :root {
+  --sans-font: 'Noto Sans', 'Noto Sans TC', 'Noto Sans SC', sans-serif !important;
+  --serif-font: 'Noto Serif', 'Noto Serif TC', 'Noto Sans TC', serif !important;
+  --inline-code-font: monospace !important;
+  --mono-font: 'JetBrains Mono', monospace !important;
+  --content-font-size: 18px;
+
   --maxWidth-none: "none";
   --maxWidth-xs: 20rem;
   --maxWidth-sm: 24rem;
@@ -274,7 +280,6 @@ a:focus {
 
 .blog-post {
   padding-top: 80px;
-  margin: 0 100px;
 }
 
 .blog-post header h1 {
@@ -307,7 +312,7 @@ a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 100px;
+  padding: 50px var(--main-spacing);
 }
 
 .hover-underline {
