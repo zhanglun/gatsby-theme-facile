@@ -2,8 +2,8 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { start } = require("repl")
 const POSTSTATUS = {
-  PUBLISH: 'publish',
-  WORKING: 'working',
+  PUBLISH: "publish",
+  WORKING: "working",
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -119,13 +119,29 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value = value || `/blogs/${node.frontmatter.title}`
     }
 
-    console.log("value ====>", value)
-
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: value.trim(),
     })
+
+    if (node.frontmatter.date) {
+      const rawDate = node.frontmatter.date.start || node.frontmatter.date;
+      
+      console.log('rawDate', rawDate);
+
+      const date = new Date(rawDate)
+
+      const year = date.getFullYear()
+      const month = date.getMonth() + 1
+      const yearMonth = `${year}-${month}`
+      const day = date.getDate()
+
+      createNodeField({ node, name: "year", value: year })
+      createNodeField({ node, name: "month", value: month })
+      createNodeField({ node, name: "year-month", value: yearMonth })
+      createNodeField({ node, name: "day", value: day })
+    }
   }
 }
 
@@ -180,53 +196,50 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             dateformat: {},
           },
           resolve(source) {
-            console.log('---->', source.date);
-
-            const { date } = source;
+            const { date } = source
 
             if (date && date.start) {
-              return date.start;
+              return date.start
             }
 
-            return date;
-          }
+            return date
+          },
         },
         tags: {
           type: "[String]",
           resolve(source) {
-            return source.tags.map((t) => t.name || t);
-          } 
+            return source.tags.map(t => t.name || t)
+          },
         },
         categories: {
           type: "[String]",
           resolve(source) {
-            const { categories = [] } = source;
+            const { categories = [] } = source
 
             if (Array.isArray(categories)) {
-
-              return (categories || []).map((item) => item.name || item);
+              return (categories || []).map(item => item.name || item)
             }
 
             if (categories instanceof Object) {
-              return [categories.name];
+              return [categories.name]
             }
 
-            return [categories];
-          }
+            return [categories]
+          },
         },
         status: {
           type: "String",
           resolve(source) {
             if (source.status && source.status.name) {
-              return source.status.name;
+              return source.status.name
             }
 
             if (source.draft) {
-              return POSTSTATUS.WORKING;
+              return POSTSTATUS.WORKING
             }
 
-            return POSTSTATUS.PUBLISH;
-          }
+            return POSTSTATUS.PUBLISH
+          },
         },
       },
     }),

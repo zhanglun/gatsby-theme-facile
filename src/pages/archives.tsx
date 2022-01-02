@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const CategoryPage = ({ data, location }) => {
+const ArchivePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const postGroup = data.allMarkdownRemark.group
   const siteMenu = data.site.siteMetadata?.menu || []
@@ -36,14 +36,25 @@ const CategoryPage = ({ data, location }) => {
       description={description}
     >
       <Seo title="All posts" />
-      {postGroup.map((category) => {
-        return <div>{category.fieldValue} {category.totalCount}</div>
+      {postGroup.map(archive => {
+        return (
+          <div className="archive-item">
+            <div className="archive-item-head">
+              <div className="archive-year">{archive.fieldValue}</div>
+            </div>
+            <ul className="archive-item-list">
+              {archive.nodes.map(node => {
+                return <li><Link to={node.fields.slug}>{node.frontmatter.title}</Link></li>
+              })}
+            </ul>
+          </div>
+        )
       })}
     </Layout>
   )
 }
 
-export default CategoryPage
+export default ArchivePage
 
 export const pageQuery = graphql`
   query {
@@ -58,8 +69,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark {
-      group(field: frontmatter___date) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { status: { eq: "publish" } } }
+    ) {
+      group(field: fields___year) {
         fieldValue
         totalCount
         nodes {
@@ -69,6 +83,9 @@ export const pageQuery = graphql`
             tags
             status
             categories
+          }
+          fields {
+            slug
           }
         }
       }
