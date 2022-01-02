@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { CategoryLabel } from "../components/CategoryLabel"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -28,6 +29,9 @@ const BlogPostTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
+          {post.frontmatter.categories && (
+            <CategoryLabel items={post.frontmatter.categories} />
+          )}
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
@@ -82,6 +86,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        categories
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

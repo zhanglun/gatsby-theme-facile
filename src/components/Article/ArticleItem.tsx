@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import { CategoryLabel } from "../CategoryLabel"
 
 export const ArticleItem = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
   const frontmatter = post.frontmatter || {}
-  
-  console.log('post', post);
-  
+
+  console.log("post", post)
+
   return (
     <li key={post.fields.slug}>
       <article
@@ -16,18 +17,14 @@ export const ArticleItem = ({ post }) => {
       >
         <header>
           {frontmatter.categories && (
-            <div className="article-category-list">
-              {frontmatter.categories.map((category, idx) => {
-                return (
-                  <span className="article-category" key={idx}>
-                    {category}
-                  </span>
-                )
-              })}
-            </div>
+            <CategoryLabel items={frontmatter.categories} />
           )}
           <h2>
-            <Link to={post.fields.slug} itemProp="url" className="article-item-title hover-underline">
+            <Link
+              to={post.fields.slug}
+              itemProp="url"
+              className="article-item-title hover-underline"
+            >
               <span itemProp="headline">{title}</span>
             </Link>
           </h2>

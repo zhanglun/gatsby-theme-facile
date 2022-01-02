@@ -1,12 +1,13 @@
 .header {
   position: sticky;
   top: 0;
+  z-index: 1;
   width: 100%;
   background-color: #fff;
 }
 
 .header-inner {
-  max-width: 1280px;
+  max-width: var(--main-max-width);
   height: var(--header-height);
   margin: 0 auto;
   display: flex;

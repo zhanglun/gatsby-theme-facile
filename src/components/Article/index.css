@@ -1,5 +1,7 @@
 .article-list {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .article-list-item {
@@ -8,6 +10,8 @@
 
 .article-list-item p {
   margin-bottom: var(--spacing-0);
+  font-size: var(--content-font-size);
+  text-align: center;
 }
 
 .article-list-item header {
@@ -20,7 +24,7 @@
   font-size: var(--fontSize-6);
   color: var(--color-heading);
   margin-bottom: var(--spacing-5);
-  margin-top: var(--spacing-5);
+  margin-top: 0;
 }
 
 .article-list-item h2:hover {
@@ -38,7 +42,6 @@
 
 .article-list-item .read-more {
   display: inline-block;
-  margin: 30px auto;
   width: 176px;
   height: 50px;
   line-height: 44px;
@@ -61,22 +64,6 @@
   border-color: var(--color-heading);
   color: var(--color-heading);
 }
-
-.article-category-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.article-category {
-  background-color: #636363;
-  color: #fff;
-  margin: 0 4px;
-  padding: 4px 14px;
-  font-size: 14px;
-  line-height: 20px;
-}
-
 
 /* 文章样式 */
 blockquote {
