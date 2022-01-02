@@ -10,6 +10,8 @@ const ArchivePage = ({ data, location }) => {
   const siteMenu = data.site.siteMetadata?.menu || []
   const description = data.site.siteMetadata?.description || ""
 
+  postGroup.reverse()
+
   if (postGroup.length === 0) {
     return (
       <Layout
@@ -36,6 +38,7 @@ const ArchivePage = ({ data, location }) => {
       description={description}
     >
       <Seo title="All posts" />
+      <div className="page-title"></div>
       {postGroup.map(archive => {
         return (
           <div className="archive-item">
@@ -44,7 +47,11 @@ const ArchivePage = ({ data, location }) => {
             </div>
             <ul className="archive-item-list">
               {archive.nodes.map(node => {
-                return <li><Link to={node.fields.slug}>{node.frontmatter.title}</Link></li>
+                return (
+                  <li>
+                    <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+                  </li>
+                )
               })}
             </ul>
           </div>
