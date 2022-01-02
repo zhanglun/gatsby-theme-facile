@@ -127,9 +127,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (node.frontmatter.date) {
       const rawDate = node.frontmatter.date.start || node.frontmatter.date;
-      
-      console.log('rawDate', rawDate);
-
       const date = new Date(rawDate)
 
       const year = date.getFullYear()
@@ -208,7 +205,17 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         tags: {
           type: "[String]",
           resolve(source) {
-            return source.tags.map(t => t.name || t)
+            const { tags = [] } = source
+
+            if (Array.isArray(tags)) {
+              return (tags || []).map(item => item.name || item)
+            }
+
+            if (tags instanceof Object) {
+              return [tags.name]
+            }
+
+            return [tags]
           },
         },
         categories: {

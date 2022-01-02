@@ -80,7 +80,6 @@ export const pageQuery = graphql`
           frontmatter {
             date
             title
-            tags
             status
             categories
           }
