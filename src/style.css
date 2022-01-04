@@ -403,10 +403,34 @@ a:focus {
 
 /* Archive */
 
+.archive-item {
+  margin-bottom: 50px;
+}
+
 .archive-year {
   font-size: 26px;
 }
 
 .archive-item-list {
   list-style-type: none;
+  padding-top: 10px;
+  margin-left: 0;
 }
+
+.archive-item-list li {
+  margin: 8px 0;
+}
+
+.archive-item-list a {
+  text-decoration: none;
+}
+
+.archive-item-list a:hover {
+  text-decoration: underline;
+}
+
+.archive-date {
+  margin-right: 20px;
+}
+
+

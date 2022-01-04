@@ -34,7 +34,7 @@ module.exports = {
       {
         id: 'about',
         name: '关于我',
-        url: '/aboutme',
+        url: '/about',
       }
     ],
   },

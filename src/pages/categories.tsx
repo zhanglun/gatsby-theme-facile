@@ -3,7 +3,8 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { ArticleList } from "../components/Article/ArticleList"
+
+// @ts-ignore
 import A from '../images/a.png';
 
 const CategoryPage = ({ data, location }) => {

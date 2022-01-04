@@ -47,8 +47,13 @@ const ArchivePage = ({ data, location }) => {
             </div>
             <ul className="archive-item-list">
               {archive.nodes.map(node => {
+                const date = `${(node.fields.month + "").padStart(2, "0")}-${(
+                  node.fields.day + ""
+                ).padStart(2, "0")}`
+
                 return (
-                  <li>
+                  <li key={node.fields.slug}>
+                    <span className="archive-date">{date}</span>
                     <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
                   </li>
                 )
@@ -92,6 +97,9 @@ export const pageQuery = graphql`
           }
           fields {
             slug
+            year
+            month
+            day
           }
         }
       }
