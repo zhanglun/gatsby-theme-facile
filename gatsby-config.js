@@ -11,7 +11,7 @@ module.exports = {
     },
     description: `欢迎来到 要眇宜修的网络日志 
 		一个记录生活，分享心得的博客`,
-    siteUrl: `https://zhanglun.github.io/`,
+    siteUrl: `https://zhanglun.github.io/gatsby-starter-blog`,
     social: {
       twitter: `asdf`,
     },
