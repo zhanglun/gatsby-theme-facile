@@ -62,6 +62,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: {frontmatter: {status: {eq: "publish"}}}
       limit: $limit
       skip: $skip
     ) {
@@ -76,6 +77,8 @@ export const pageQuery = graphql`
           description
           draft
           status
+          categories
+          tags
         }
       }
     }
