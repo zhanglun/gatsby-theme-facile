@@ -5151,10 +5151,10 @@ gatsby-plugin-gatsby-cloud@^4.3.0:
     lodash "^4.17.21"
     webpack-assets-manifest "^5.0.6"
 
-gatsby-plugin-google-analytics@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.3.0.tgz"
-  integrity sha512-waHU0b7eTQuub7GgMDxJ4E5MjqXFqmQ8UaFMAWrdaCtRmj4CNdee36xYMbobzqOmtU5L40IFZ3kifIda6M1Pow==
+gatsby-plugin-google-analytics@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmmirror.com/gatsby-plugin-google-analytics/download/gatsby-plugin-google-analytics-4.4.0.tgz#a4c700b59f5bdb8c8b2276f5e50440d484b14b58"
+  integrity sha512-Z+CW64zo/d1rtyMz1bJ+Ao9apsWeyak5BXNc7piO+FwE7dFdWrAyHrgGmE3YltqFUY8+PS3vmpBv9qn0ZrOSGg==
   dependencies:
     "@babel/runtime" "^7.15.4"
     minimatch "3.0.4"
