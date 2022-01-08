@@ -2,16 +2,15 @@ const INTEGRATION_TOKEN = 'secret_6buUNCr4GKBMmLH6jhICx7tRJvb7iBWf6PtWgrnfmIy';
 const DATABASE_ID = '45ab44626c7b4b8d9ecd22c9b70980b5';
 
 module.exports = {
-  pathPrefix: "/gatsby-starter-blog",
   siteMetadata: {
-    title: `要眇宜修的网络日志`,
+    title: `张小伦的网络日志`,
     author: {
       name: `zhanglun`,
       summary: `感受生活`,
     },
-    description: `欢迎来到 要眇宜修的网络日志 
+    description: `欢迎来到张小伦的网络日志 
 		一个记录生活，分享心得的博客`,
-    siteUrl: `https://zhanglun.github.io/gatsby-starter-blog`,
+    siteUrl: `https://zhanglun.github.io`,
     social: {
       twitter: `asdf`,
     },
@@ -69,6 +68,9 @@ module.exports = {
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
+          },
+          {
+            resolve: `gatsby-remark-images-anywhere`,
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
@@ -140,15 +142,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `张小伦的网络日志`,
+        short_name: `张小伦`,
+        description: `欢迎来到张小伦的网络日志一个记录生活，分享心得的博客`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     {

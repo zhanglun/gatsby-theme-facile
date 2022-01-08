@@ -6,11 +6,27 @@ import Seo from "../components/seo"
 
 const ArchivePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const postGroup = data.allMarkdownRemark.group
+  const postGroup = data.allMarkdownRemark.group.slice(0).reverse()
   const siteMenu = data.site.siteMetadata?.menu || []
   const description = data.site.siteMetadata?.description || ""
 
-  postGroup.reverse()
+  // Gatsby group不支持sort，先在逻辑中排序。有能力之后再提交PR给 Gatsby
+  postGroup.forEach((group) => {
+    const { nodes } = group;
+    
+    group.nodes = nodes.sort((a, b) => {
+      const aDate = a.frontmatter.date || '';
+      const bDate = b.frontmatter.date || '';
+
+      if (aDate > bDate) {
+        return -1;
+      } else {
+        return 1;
+      }
+
+      return 0;
+    });
+  });
 
   if (postGroup.length === 0) {
     return (
@@ -39,9 +55,9 @@ const ArchivePage = ({ data, location }) => {
     >
       <Seo title="All posts" />
       <div className="page-title"></div>
-      {postGroup.map(archive => {
+      {postGroup.map((archive, idx) => {
         return (
-          <div className="archive-item">
+          <div className="archive-item" key={idx}>
             <div className="archive-item-head">
               <div className="archive-year">{archive.fieldValue}</div>
             </div>
