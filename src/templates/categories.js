@@ -59,7 +59,6 @@ export const pageQuery = graphql`
       filter: {frontmatter: {categories: {eq: $category }}}
     ) {
       nodes {
-        excerpt
         fields {
           slug
         }

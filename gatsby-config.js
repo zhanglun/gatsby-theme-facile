@@ -155,7 +155,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-notion-api`,
+      resolve: require.resolve(`../gatsby-source-notion-api`),
       options: {
         token: `${INTEGRATION_TOKEN}`,
         databaseId: `${DATABASE_ID}`,

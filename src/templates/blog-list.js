@@ -65,7 +65,6 @@ export const pageQuery = graphql`
       skip: $skip
     ) {
       nodes {
-        excerpt
         fields {
           slug
         }
