@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/CleanLayout"
 import Seo from "../components/seo"
 import { CategoryLabel } from "../components/CategoryLabel"
 
@@ -40,19 +40,21 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
           className="content"
         />
-        <hr />
-        <footer></footer>
       </article>
       <nav className="pagination">
-        {previous && (
-          <Link to={previous.fields.slug} rel="prev">
+        {previous ? (
+          <Link to={previous.fields.slug} className="prev" rel="prev">
             ← {previous.frontmatter.title}
           </Link>
+        ) : (
+          <Link className="prev" rel="prev"></Link>
         )}
-        {next && (
-          <Link to={next.fields.slug} rel="next">
+        {next ? (
+          <Link to={next.fields.slug} className="next" rel="next">
             {next.frontmatter.title} →
           </Link>
+        ) : (
+          <Link className="next" rel="next"></Link>
         )}
       </nav>
     </Layout>
