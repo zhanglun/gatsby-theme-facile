@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-categories-tsx",
+    "path": "/categories/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Facile blog","description":"This is the description","menu":[{"id":"home","name":"首页","url":"/"},{"id":"blog","name":"博文","url":"/blogs"},{"id":"category","name":"分类","url":"/categories"},{"id":"archive","name":"归档","url":"/archives"},{"id":"lab","name":"实验室","url":"/labs"},{"id":"about","name":"关于我","url":"/about"}]}},"allMarkdownRemark":{"group":[{"fieldValue":"demo","totalCount":1},{"fieldValue":"hello","totalCount":1}]}},"pageContext":{}},
+    "staticQueryHashes": ["2841359383"]}

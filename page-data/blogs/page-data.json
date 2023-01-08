@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-list-tsx",
+    "path": "/blogs",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Facile blog","description":"This is the description","menu":[{"id":"home","name":"首页","url":"/"},{"id":"blog","name":"博文","url":"/blogs"},{"id":"category","name":"分类","url":"/categories"},{"id":"archive","name":"归档","url":"/archives"},{"id":"lab","name":"实验室","url":"/labs"},{"id":"about","name":"关于我","url":"/about"}]}},"allMarkdownRemark":{"nodes":[{"id":"16be9eba-bd2b-54eb-a839-a451b4a452c2","fields":{"slug":"/blogs/Hello/"},"frontmatter":{"date":"2023-01-01","title":"Hello, facile","status":null,"cover":null,"categories":["demo","hello"],"tags":["test1","test2"]}}]}},"pageContext":{"limit":10,"skip":0,"numPages":1,"currentPage":1}},
+    "staticQueryHashes": ["2841359383"]}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Facile blog]]></title><description><![CDATA[This is the description]]></description><link>https://zhanglun.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Jan 2023 07:13:16 GMT</lastBuildDate><item><title><![CDATA[Hello, facile]]></title><description><![CDATA[gatsby-theme-facile Quickly get started useing facile! 🚀 Quick start Create a Gatsby site. Use the Gatsby CLI to create a new site, specify…]]></description><link>https://zhanglun.github.io/blogs/Hello/</link><guid isPermaLink="false">https://zhanglun.github.io/blogs/Hello/</guid><pubDate>Sun, 01 Jan 2023 14:33:43 GMT</pubDate><content:encoded>&lt;h1 class=&quot;heading title heading&quot; id=&quot;gatsby-theme-facile&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gatsby-theme-facile&quot; aria-label=&quot;gatsby theme facile permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;gatsby-theme-facile&lt;/h1&gt;
+&lt;p align=&quot;center&quot;&gt;
+  &lt;a href=&quot;https://www.gatsbyjs.com&quot;&gt;
+    &lt;img alt=&quot;Gatsby&quot; src=&quot;https://www.gatsbyjs.com/Gatsby-Monogram.svg&quot; width=&quot;60&quot;&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+&lt;h1 align=&quot;center&quot;&gt;
+  A simple Gastby blog theme named facile.
+&lt;/h1&gt;
+&lt;p class=&quot;para&quot;&gt;Quickly get started useing facile!&lt;/p&gt;
+&lt;h2 class=&quot;heading subtitle heading&quot; id=&quot;-Quick-start&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-Quick-start&quot; aria-label=&quot; Quick start permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🚀 Quick start&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;Create a Gatsby site.&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&quot;para&quot;&gt;Use the Gatsby CLI to create a new site, specifying the blog theme starter.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;shell&quot; theme=&quot;one-dark&quot; line-numbers=&quot;true&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;# create a new Gatsby site using the blog theme starter
+gatsby new my-themed-blog https://github.com/zhanglun/gatsby-theme-facile.git&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;Start developing.&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&quot;para&quot;&gt;Navigate into your new site’s directory and start it up.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;shell&quot; theme=&quot;one-dark&quot; line-numbers=&quot;true&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;cd my-themed-blog/
+gatsby develop&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;Open the code and start customizing!&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&quot;para&quot;&gt;Your site is now running at &lt;code&gt;http://localhost:8000&lt;/code&gt;!&lt;/p&gt;
+&lt;p class=&quot;para&quot;&gt;To get started, check out the guide to &lt;a href=&quot;https://gatsbyjs.com/docs/themes/using-a-gatsby-theme&quot; class=&quot;link-underline&quot;&gt;using the Gatsby blog theme starter&lt;/a&gt;, or the longer, &lt;a href=&quot;https://gatsbyjs.com/tutorial/using-a-theme&quot; class=&quot;link-underline&quot;&gt;more detailed tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class=&quot;heading subtitle heading&quot; id=&quot;-Whats-inside&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-Whats-inside&quot; aria-label=&quot; Whats inside permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🧐 What’s inside?&lt;/h2&gt;
+&lt;p class=&quot;para&quot;&gt;Here are the top-level files and directories you’ll see in a site created using the blog theme starter:&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;text&quot; theme=&quot;one-dark&quot; line-numbers=&quot;true&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;gatsby-starter-blog-theme
+├── content
+│   ├── assets
+│   │   └── avatar.png
+│   └── posts
+│       ├── hello-world.mdx
+│       └── my-second-post.mdx
+├── src
+│   ├── components
+│   ├── images 
+│   ├── pages 
+│   │   └── 404.tsx
+│   │   └── about.tsx
+│   │   └── archives.tsx
+│   │   └── categories.tsx
+│   │   └── index.tsx
+│   │   └── labs.tsx
+│   ├── stories 
+│   └── templates 
+├── .gitignore
+├── .prettierrc
+├── gatsby-config.js
+├── LICENSE
+├── package-lock.json
+├── package.json
+└── README.md&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;/content&lt;/code&gt;&lt;/strong&gt;: A content folder holding assets that the theme expects to exist. This will vary from theme to theme — this starter is set up to get you started with the blog theme, which expects an image asset for your avatar, and blog post content. Replace the avatar image file, delete the demo posts, and add your own!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;/src&lt;/code&gt;&lt;/strong&gt;: You will probably want to customize your site to personalize it. The files under &lt;code&gt;/src/gatsby-theme-blog&lt;/code&gt; &lt;em&gt;shadow&lt;/em&gt;, or override, the files of the same name in the &lt;code&gt;gatsby-theme-blog&lt;/code&gt; package. To learn more about this, check out the &lt;a href=&quot;https://gatsbyjs.com/docs/themes/using-a-gatsby-theme&quot; class=&quot;link-underline&quot;&gt;guide to getting started with using the blog theme starter&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;.gitignore&lt;/code&gt;&lt;/strong&gt;: This file tells git which files it should not track / not maintain a version history for.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;.prettierrc&lt;/code&gt;&lt;/strong&gt;: This file tells &lt;a href=&quot;https://prettier.io/&quot; class=&quot;link-underline&quot;&gt;Prettier&lt;/a&gt; which configuration it should use to lint files.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;gatsby-config.js&lt;/code&gt;&lt;/strong&gt;: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. When using themes, it’s where you’ll include the theme plugin, and any customization options the theme provides.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;LICENSE&lt;/code&gt;&lt;/strong&gt;: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;package-lock.json&lt;/code&gt;&lt;/strong&gt; (See &lt;code&gt;package.json&lt;/code&gt; below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. &lt;strong&gt;(You won’t change this file directly).&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;package.json&lt;/code&gt;&lt;/strong&gt;: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;&lt;code&gt;README.md&lt;/code&gt;&lt;/strong&gt;: A text file containing useful reference information about your project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class=&quot;heading subtitle heading&quot; id=&quot;-Learning-Gatsby&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-Learning-Gatsby&quot; aria-label=&quot; Learning Gatsby permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎓 Learning Gatsby&lt;/h2&gt;
+&lt;p class=&quot;para&quot;&gt;Looking for more guidance? Full documentation for Gatsby lives &lt;a href=&quot;https://www.gatsbyjs.com/&quot; class=&quot;link-underline&quot;&gt;on the website&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;para&quot;&gt;Here are some places to start:&lt;/p&gt;
+&lt;h3 class=&quot;heading&quot; id=&quot;Themes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#Themes&quot; aria-label=&quot;Themes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Themes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;To learn more about Gatsby themes specifically, we recommend checking out the &lt;a href=&quot;https://www.gatsbyjs.com/docs/themes/&quot; class=&quot;link-underline&quot;&gt;theme docs&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class=&quot;heading&quot; id=&quot;General&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#General&quot; aria-label=&quot;General permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;General&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;For most developers, we recommend starting with our &lt;a href=&quot;https://www.gatsbyjs.com/tutorial/&quot; class=&quot;link-underline&quot;&gt;in-depth tutorial for creating a site with Gatsby&lt;/a&gt;.&lt;/strong&gt; It starts with zero assumptions about your level of ability and walks through every step of the process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class=&quot;para&quot;&gt;&lt;strong&gt;To dive straight into code samples, head &lt;a href=&quot;https://www.gatsbyjs.com/docs/&quot; class=&quot;link-underline&quot;&gt;to our documentation&lt;/a&gt;.&lt;/strong&gt; In particular, check out the &lt;em&gt;Reference Guides&lt;/em&gt; and &lt;em&gt;Gatsby API&lt;/em&gt; sections in the sidebar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

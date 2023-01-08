@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-categories-tsx",
+    "path": "/categories/demo",
+    "result": {"data":{"site":{"siteMetadata":{"title":"Facile blog","description":"This is the description","menu":[{"id":"home","name":"首页","url":"/"},{"id":"blog","name":"博文","url":"/blogs"},{"id":"category","name":"分类","url":"/categories"},{"id":"archive","name":"归档","url":"/archives"},{"id":"lab","name":"实验室","url":"/labs"},{"id":"about","name":"关于我","url":"/about"}]}},"allMarkdownRemark":{"nodes":[{"excerpt":"gatsby-theme-facile Quickly get started useing facile! 🚀 Quick start Create a Gatsby site. Use the Gatsby CLI to create a new site, specify…","fields":{"slug":"/blogs/Hello/"},"frontmatter":{"date":"2023-01-01","title":"Hello, facile","description":null,"status":null,"cover":null,"categories":["demo","hello"],"tags":["test1","test2"]}}]}},"pageContext":{"category":"demo","count":1}},
+    "staticQueryHashes": ["2841359383"]}
