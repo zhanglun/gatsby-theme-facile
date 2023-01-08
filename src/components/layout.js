@@ -1,23 +1,24 @@
-import * as React from "react"
-import { Header } from "./Header"
-import { Banner } from "./Banner"
-import { Footer } from './Footer';
+import * as React from 'react';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+import { SideMenu } from './SideMenu';
 
-const Layout = ({ location, children, title, menu, description }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  
+deckDeckGoHighlightElement();
+
+function Layout({
+  location, children, title, menu, description,
+}) {
+  const rootPath = `${__PATH_PREFIX__}/`;
+  const isRootPath = location.pathname === rootPath;
+
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <Header
-        title={title}
-        menu={menu}
-      />
-      <Banner description={description} />
-      <section className="main">{children}</section>
-      <Footer />
+    <div
+      className={`global-wrapper ${isRootPath ? 'root' : ''}`}
+      data-is-root-path={isRootPath}
+    >
+      <SideMenu title={title} menu={menu} />
+      {children}
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

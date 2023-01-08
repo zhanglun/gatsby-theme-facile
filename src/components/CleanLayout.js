@@ -1,14 +1,21 @@
-import * as React from "react"
+import * as React from 'react';
+import { SideMenu } from './SideMenu';
 
-const Layout = ({ location, children, title, menu, description }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
+function Layout({
+  location, children, title, menu, description,
+}) {
+  const rootPath = `${__PATH_PREFIX__}/`;
+  const isRootPath = location.pathname === rootPath;
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <section className="main">{children}</section>
+      <SideMenu
+        title={title}
+        menu={menu}
+      />
+      <section>{children}</section>
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

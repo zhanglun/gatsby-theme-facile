@@ -1,24 +1,25 @@
-const INTEGRATION_TOKEN = 'secret_6buUNCr4GKBMmLH6jhICx7tRJvb7iBWf6PtWgrnfmIy';
-const DATABASE_ID = '45ab44626c7b4b8d9ecd22c9b70980b5';
-
 module.exports = {
   siteMetadata: {
-    title: `张小伦的网络日志`,
+    title: 'Facile blog',
     author: {
-      name: `zhanglun`,
-      summary: `感受生活`,
+      name: 'zhanglun',
+      summary: '感受生活',
     },
-    description: `欢迎来到张小伦的网络日志 
-		一个记录生活，分享心得的博客`,
-    siteUrl: `https://zhanglun.github.io`,
+    description: 'This is the description',
+    siteUrl: 'https://zhanglun.github.io',
     social: {
-      twitter: `asdf`,
+      twitter: 'zhanglun1410',
     },
     menu: [
       {
         id: 'home',
         name: '首页',
         url: '/',
+      },
+      {
+        id: 'blog',
+        name: '博文',
+        url: '/blogs',
       },
       {
         id: 'category',
@@ -31,63 +32,92 @@ module.exports = {
         url: '/archives',
       },
       {
+        id: 'lab',
+        name: '实验室',
+        url: '/labs',
+      },
+      {
         id: 'about',
         name: '关于我',
         url: '/about',
-      }
+      },
     ],
   },
   plugins: [
-    `gatsby-plugin-image`,
+    'gatsby-plugin-image',
+    'gatsby-plugin-sass',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/content/posts`,
+        name: 'blog',
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
+        gfm: true,
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-classes',
             options: {
-              maxWidth: 630,
+              classMap: {
+                'heading[depth=1]': 'heading title',
+                'heading[depth=2]': 'heading subtitle',
+                heading: 'heading',
+                paragraph: 'para',
+                link: 'link-underline',
+                blockquote: 'quote',
+              },
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: 'gatsby-remark-autolink-headers',
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              maintainCase: true,
             },
           },
           {
-            resolve: `gatsby-remark-images-anywhere`,
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 750,
+            },
           },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+            options: {
+              rapperStyle: 'margin-bottom: 1.0725rem',
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-highlight-code',
+            options: {
+              lineNumbers: true,
+              theme: 'one-dark',
+            },
+          },
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: `UA-50406624-2`,
+        trackingId: 'UA-50406624-2',
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
           {
@@ -103,24 +133,21 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
-            },
+            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.nodes.map((node) => ({
+              ...node.frontmatter,
+              description: node.excerpt,
+              date: node.frontmatter.date,
+              url: site.siteMetadata.siteUrl + node.fields.slug,
+              guid: site.siteMetadata.siteUrl + node.fields.slug,
+              custom_elements: [{ 'content:encoded': node.html }],
+            })),
             query: `
               {
                 allMarkdownRemark(
                   sort: { order: DESC, fields: [frontmatter___date] },
                 ) {
                   nodes {
-                    excerpt
+                    excerpt(truncate: true, pruneLength: 140)
                     html
                     fields {
                       slug
@@ -133,39 +160,30 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            output: '/rss.xml',
+            title: 'Facile blog',
           },
         ],
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `张小伦的网络日志`,
-        short_name: `张小伦`,
-        description: `欢迎来到张小伦的网络日志一个记录生活，分享心得的博客`,
-        start_url: `/`,
-        background_color: `#ffffff`,
+        name: 'Facile blog',
+        short_name: '张小伦',
+        description: '欢迎来到Facile blog一个记录生活，分享心得的博客',
+        start_url: '/',
+        background_color: '#ffffff',
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: require.resolve(`../gatsby-source-notion-api`),
-    //   options: {
-    //     token: `${INTEGRATION_TOKEN}`,
-    //     databaseId: `${DATABASE_ID}`,
-    //     propsToFrontmatter: true,
-    //     lowerTitleLevel: true,
-    //   },
-    // },
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
